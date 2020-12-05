@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty
 class CardDto(
 
         @get:ApiModelProperty("The id of the card")
-        var cardId: String? = null,
+        var movieId: String? = null,
 
         @get:ApiModelProperty("The name of this card")
         var name: String? = null,
@@ -14,7 +14,7 @@ class CardDto(
         var description: String? = null,
 
         @get: ApiModelProperty("The rarity of the card")
-        var rarity: Rarity? = null,
+        var hall: Rarity? = null,
 
         @get: ApiModelProperty("The id of the image associated with this card")
         var imageId: String? = null

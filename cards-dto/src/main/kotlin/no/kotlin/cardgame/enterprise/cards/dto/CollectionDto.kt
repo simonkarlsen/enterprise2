@@ -5,7 +5,7 @@ import io.swagger.annotations.ApiModelProperty
 class CollectionDto(
 
         @get:ApiModelProperty("Info on all the cards in the game")
-        var cards: MutableList<CardDto> = mutableListOf(),
+        var movies: MutableList<CardDto> = mutableListOf(),
 
         @get:ApiModelProperty("Cost of each card, based on its rarity")
         var prices: MutableMap<Rarity, Int> = mutableMapOf(),
@@ -14,5 +14,5 @@ class CollectionDto(
         var millValues: MutableMap<Rarity, Int> = mutableMapOf(),
 
         @get:ApiModelProperty("Probability of getting a card of a specific rarity when opening card packs")
-        var rarityProbabilities: MutableMap<Rarity, Double> = mutableMapOf()
+        var hallProbabilities: MutableMap<Rarity, Double> = mutableMapOf()
 )

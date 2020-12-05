@@ -10,6 +10,6 @@ data class Card(
 ){
 
     constructor(dto: CardDto): this(
-            dto.cardId ?: throw IllegalArgumentException("Null cardId"),
-            dto.rarity ?: throw IllegalArgumentException("Null rarity"))
+            dto.movieId ?: throw IllegalArgumentException("Null cardId"),
+            dto.hall ?: throw IllegalArgumentException("Null rarity"))
 }

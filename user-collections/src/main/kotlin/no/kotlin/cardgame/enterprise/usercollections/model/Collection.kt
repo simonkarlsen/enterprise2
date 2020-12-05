@@ -17,10 +17,10 @@ data class Collection(
 ){
 
     constructor(dto: CollectionDto) : this(
-            dto.cards.map { Card(it) },
+            dto.movies.map { Card(it) },
             dto.prices.toMap(),
             dto.millValues.toMap(),
-            dto.rarityProbabilities.toMap()
+            dto.hallProbabilities.toMap()
     )
 
     val cardsByRarity : Map<Rarity, List<Card>> = cards.groupBy { it.rarity }

@@ -29,32 +29,32 @@ internal class RestApiTest {
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails()
     }
 
-
-    @Test
-    fun testGetImg() {
-
-        given().get("/api/cards/imgs/001-monster.svg")
-                .then()
-                .statusCode(200)
-                .contentType("image/svg+xml")
-                .header("cache-control", `is`(notNullValue()))
-    }
+//
+//    @Test
+//    fun testGetImg() {
+//
+//        given().get("/api/movies/imgs/001-monster.svg")
+//                .then()
+//                .statusCode(200)
+//                .contentType("image/svg+xml")
+//                .header("cache-control", `is`(notNullValue()))
+//    }
 
     @Test
     fun testGetCollection() {
 
-        given().get("/api/cards/collection_$LATEST")
+        given().get("/api/movies/collection_$LATEST")
                 .then()
                 .statusCode(200)
-                .body("data.cards.size", greaterThan(10))
+                .body("data.movies.size", greaterThan(10))
     }
 
     @Test
     fun testGetCollectionOldVersion() {
 
-        given().get("/api/cards/collection_v0_002")
+        given().get("/api/movies/collection_v0_001")
                 .then()
                 .statusCode(200)
-                .body("data.cards.size", greaterThan(10))
+                .body("data.movies.size", greaterThan(10))
     }
 }

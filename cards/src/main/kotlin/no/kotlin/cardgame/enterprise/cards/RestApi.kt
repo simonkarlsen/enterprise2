@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController
 import java.net.URI
 import java.util.concurrent.TimeUnit
 
-@Api(value = "/api/cards", description = "Operation on the cards existing in the game")
-@RequestMapping(path = ["/api/cards"])
+@Api(value = "/api/movies", description = "Operation on the cards existing in the game")
+@RequestMapping(path = ["/api/movies"])
 @RestController
 class RestApi {
 
@@ -48,7 +48,7 @@ class RestApi {
     fun getOld() : ResponseEntity<Void>{
 
         return ResponseEntity.status(301)
-                .location(URI.create("/api/cards/collection_$LATEST"))
+                .location(URI.create("/api/movies/collection_$LATEST"))
                 .build()
     }
 

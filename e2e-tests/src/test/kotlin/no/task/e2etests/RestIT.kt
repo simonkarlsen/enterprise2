@@ -70,10 +70,10 @@ class RestIT {
                 .pollInterval(Duration.ofSeconds(10))
                 .ignoreExceptions()
                 .until {
-                    given().get("/api/cards/collection_v1_000")
+                    given().get("/api/movies/collection_v1_000")
                             .then()
                             .statusCode(200)
-                            .body("data.cards.size", greaterThan(10))
+                            .body("data.movies.size", greaterThan(10))
                     true
                 }
     }
