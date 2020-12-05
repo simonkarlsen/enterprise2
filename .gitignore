@@ -1,0 +1,15 @@
+# Project exclude paths
+
+**/target
+/.idea/
+/*.iml
+
+# Package Files #
+*.jar
+
+
+**/node_modules
+bundle.js
+
+
+~$*
