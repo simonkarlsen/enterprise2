@@ -43,7 +43,7 @@ internal class RestApiTest {
     @Test
     fun testGetCollection() {
 
-        given().get("/api/movies/collection_$LATEST")
+        given().get("/api/cards/collection_$LATEST")
                 .then()
                 .statusCode(200)
                 .body("data.movies.size", greaterThan(10))
@@ -52,7 +52,7 @@ internal class RestApiTest {
     @Test
     fun testGetCollectionOldVersion1() {
 
-        given().get("/api/movies/collection_v0_001")
+        given().get("/api/cards/collection_v0_001")
                 .then()
                 .statusCode(200)
                 .body("data.movies.size", greaterThan(10))
@@ -61,7 +61,7 @@ internal class RestApiTest {
     @Test
     fun testGetCollectionOldVersion2() {
 
-        given().get("/api/movies/collection_v0_002")
+        given().get("/api/cards/collection_v0_002")
                 .then()
                 .statusCode(200)
                 .body("data.movies.size", greaterThan(10))
@@ -70,7 +70,7 @@ internal class RestApiTest {
     @Test
     fun testGetCollectionOldVersion3() {
 
-        given().get("/api/movies/collection_v0_003")
+        given().get("/api/cards/collection_v0_003")
                 .then()
                 .statusCode(200)
                 .body("data.movies.size", greaterThan(10))

@@ -145,7 +145,7 @@ export class Collection extends React.Component {
 
         if(this.state.openedPack){
             const cards = this.state.openedPack.cardIdsInOpenedPack.map(id => {
-                 return this.state.collection.cards.find(c => c.cardId === id)
+                 return this.state.collection.movies.find(c => c.movieId === id)
             });
 
             return (
@@ -155,14 +155,14 @@ export class Collection extends React.Component {
                     <div className="card-container">
                         {cards.map(c => {
                             c.quantity = 1;
-                        return <Card key={c.cardId} {...c}/>})
+                        return <Card key={c.movieId} {...c}/>})
                     }
                     </div>
                 </div>
             );
         }
 
-        const packs = this.state.userStats.cardPacks
+        const packs = this.state.userStats.ticketPacks
 
         return (
             <div>
@@ -172,10 +172,10 @@ export class Collection extends React.Component {
                     <button disabled={packs<=0} onClick={this.openPack}>Open Pack</button>
                 </div>
                 <div className="card-container">
-                {this.state.collection.cards.map(c => {
-                    const info = this.state.userStats.ownedCards.find(z => z.cardId===c.cardId)
+                {this.state.collection.movies.map(c => {
+                    const info = this.state.userStats.ownedTickets.find(z => z.movieId===c.movieId)
                     const quantity = info ? info.numberOfCopies : 0
-                     return  <Card key={c.cardId} {...c} quantity={quantity}/>
+                     return  <Card key={c.movieId} {...c} quantity={quantity}/>
                     }
                     )}
                 </div>

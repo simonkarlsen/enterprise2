@@ -13,6 +13,12 @@ class CardDto(
         @get:ApiModelProperty("A description of the card effects")
         var description: String? = null,
 
+        @get:ApiModelProperty("The director of the movie ")
+        var director: String? = null,
+
+        @get:ApiModelProperty("The year the movie was made")
+        var year: Int? = null,
+
         @get: ApiModelProperty("The rarity of the card")
         var hall: Rarity? = null,
 
