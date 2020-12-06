@@ -5,8 +5,8 @@ import no.kotlin.cardgame.enterprise.cards.dto.Rarity
 
 
 data class Card(
-        val cardId : String,
-        val rarity: Rarity
+        val movieId : String,
+        val hall: Rarity
 ){
 
     constructor(dto: CardDto): this(

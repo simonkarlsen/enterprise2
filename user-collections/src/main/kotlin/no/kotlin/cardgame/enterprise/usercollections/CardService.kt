@@ -106,18 +106,18 @@ class CardService(
 
     fun millValue(cardId: String) : Int {
         verifyCollection()
-        val card : Card = cardCollection.find { it.cardId  == cardId} ?:
+        val card : Card = cardCollection.find { it.movieId  == cardId} ?:
             throw IllegalArgumentException("Invalid cardId $cardId")
 
-        return collection!!.millValues[card.rarity]!!
+        return collection!!.millValues[card.hall]!!
     }
 
     fun price(cardId: String) : Int {
         verifyCollection()
-        val card : Card = cardCollection.find { it.cardId  == cardId} ?:
+        val card : Card = cardCollection.find { it.movieId  == cardId} ?:
                 throw IllegalArgumentException("Invalid cardId $cardId")
 
-        return collection!!.prices[card.rarity]!!
+        return collection!!.prices[card.hall]!!
     }
 
     fun getRandomSelection(n: Int) : List<Card>{

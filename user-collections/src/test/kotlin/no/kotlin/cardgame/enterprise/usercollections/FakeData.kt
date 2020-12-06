@@ -17,19 +17,19 @@ object FakeData {
         dto.prices[PINK_DIAMOND] = 100_000
 
         dto.prices.forEach { dto.millValues[it.key] = it.value / 4 }
-        dto.prices.keys.forEach { dto.rarityProbabilities[it] = 0.25 }
+        dto.prices.keys.forEach { dto.hallProbabilities[it] = 0.25 }
 
-        dto.cards.run {
-            add(CardDto(cardId = "c00", rarity = BRONZE))
-            add(CardDto(cardId = "c01", rarity = BRONZE))
-            add(CardDto(cardId = "c02", rarity = BRONZE))
-            add(CardDto(cardId = "c03", rarity = BRONZE))
-            add(CardDto(cardId = "c04", rarity = SILVER))
-            add(CardDto(cardId = "c05", rarity = SILVER))
-            add(CardDto(cardId = "c06", rarity = SILVER))
-            add(CardDto(cardId = "c07", rarity = GOLD))
-            add(CardDto(cardId = "c08", rarity = GOLD))
-            add(CardDto(cardId = "c09", rarity = PINK_DIAMOND))
+        dto.movies.run {
+            add(CardDto(movieId = "c00", hall = BRONZE))
+            add(CardDto(movieId = "c01", hall = BRONZE))
+            add(CardDto(movieId = "c02", hall = BRONZE))
+            add(CardDto(movieId = "c03", hall = BRONZE))
+            add(CardDto(movieId = "c04", hall = SILVER))
+            add(CardDto(movieId = "c05", hall = SILVER))
+            add(CardDto(movieId = "c06", hall = SILVER))
+            add(CardDto(movieId = "c07", hall = GOLD))
+            add(CardDto(movieId = "c08", hall = GOLD))
+            add(CardDto(movieId = "c09", hall = PINK_DIAMOND))
         }
 
         return dto

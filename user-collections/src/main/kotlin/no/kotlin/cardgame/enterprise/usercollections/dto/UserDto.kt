@@ -11,8 +11,8 @@ data class UserDto(
         var coins: Int? = null,
 
         @get:ApiModelProperty("The number of un-opened card packs the user owns")
-        var cardPacks: Int? = null,
+        var ticketPacks: Int? = null,
 
         @get:ApiModelProperty("List of cards owned by the user")
-        var ownedCards: MutableList<CardCopyDto> = mutableListOf()
+        var ownedTickets: MutableList<CardCopyDto> = mutableListOf()
 )

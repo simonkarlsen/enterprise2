@@ -36,7 +36,7 @@ class UserService(
 
         val user = userRepository.findById(userId).orElse(null)
         if(user != null){
-            user.ownedCards.size
+            user.ownedTickets.size
         }
         return user
     }
@@ -49,7 +49,7 @@ class UserService(
 
         val user = User()
         user.userId = userId
-        user.cardPacks = 3
+        user.ticketPacks = 3
         user.coins = 100
         userRepository.save(user)
         return true
@@ -60,7 +60,7 @@ class UserService(
             throw IllegalStateException("Card service is not initialized")
         }
 
-        if (!cardService.cardCollection.any { it.cardId == cardId }) {
+        if (!cardService.cardCollection.any { it.movieId == cardId }) {
             throw IllegalArgumentException("Invalid cardId: $cardId")
         }
     }
@@ -92,13 +92,13 @@ class UserService(
     }
 
     private fun addCard(user: User, cardId: String) {
-        user.ownedCards.find { it.cardId == cardId }
+        user.ownedTickets.find { it.movieId == cardId }
                 ?.apply { numberOfCopies++ }
                 ?: CardCopy().apply {
-                    this.cardId = cardId
+                    this.movieId = cardId
                     this.user = user
                     this.numberOfCopies = 1
-                }.also { user.ownedCards.add(it) }
+                }.also { user.ownedTickets.add(it) }
     }
 
     fun millCard(userId: String, cardId: String) {
@@ -106,7 +106,7 @@ class UserService(
 
         val user = userRepository.lockedFind(userId)!!
 
-        val copy = user.ownedCards.find { it.cardId == cardId }
+        val copy = user.ownedTickets.find { it.movieId == cardId }
         if(copy == null || copy.numberOfCopies == 0){
             throw IllegalArgumentException("User $userId does not own a copy of $cardId")
         }
@@ -123,19 +123,19 @@ class UserService(
 
         val user = userRepository.lockedFind(userId)!!
 
-        if(user.cardPacks < 1){
+        if(user.ticketPacks < 1){
             throw IllegalArgumentException("No pack to open")
         }
 
-        user.cardPacks--
+        user.ticketPacks--
 
         val selection = cardService.getRandomSelection(CARDS_PER_PACK)
 
         val ids = mutableListOf<String>()
 
         selection.forEach {
-            addCard(user, it.cardId)
-            ids.add(it.cardId)
+            addCard(user, it.movieId)
+            ids.add(it.movieId)
         }
         return ids
     }

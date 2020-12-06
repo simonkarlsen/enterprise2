@@ -152,7 +152,7 @@ internal class RestAPITest {
                 .statusCode(200)
 
         val user = userService.findByIdEager(userId)!!
-        assertTrue(user.ownedCards.any { it.cardId == cardId })
+        assertTrue(user.ownedTickets.any { it.movieId == cardId })
     }
 
 
@@ -163,8 +163,8 @@ internal class RestAPITest {
         given().auth().basic(userId, "123").put("/$userId").then().statusCode(201)
 
         val before = userService.findByIdEager(userId)!!
-        val totCards = before.ownedCards.sumBy { it.numberOfCopies }
-        val totPacks = before.cardPacks
+        val totCards = before.ownedTickets.sumBy { it.numberOfCopies }
+        val totPacks = before.ticketPacks
         assertTrue(totPacks > 0)
 
         given().auth().basic(userId, "123")
@@ -175,9 +175,9 @@ internal class RestAPITest {
                 .statusCode(200)
 
         val after = userService.findByIdEager(userId)!!
-        assertEquals(totPacks - 1, after.cardPacks)
+        assertEquals(totPacks - 1, after.ticketPacks)
         assertEquals(totCards + UserService.CARDS_PER_PACK,
-                after.ownedCards.sumBy { it.numberOfCopies })
+                after.ownedTickets.sumBy { it.numberOfCopies })
     }
 
 
@@ -198,10 +198,10 @@ internal class RestAPITest {
                 .statusCode(200)
 
         val between = userService.findByIdEager(userId)!!
-        val n = between.ownedCards.sumBy { it.numberOfCopies }
+        val n = between.ownedTickets.sumBy { it.numberOfCopies }
 
 
-        val cardId = between.ownedCards[0].cardId!!
+        val cardId = between.ownedTickets[0].movieId!!
         given().auth().basic(userId, "123")
                 .contentType(ContentType.JSON)
                 .body(PatchUserDto(Command.MILL_CARD, cardId))
@@ -211,6 +211,6 @@ internal class RestAPITest {
 
         val after = userService.findByIdEager(userId)!!
         assertTrue(after.coins > coins)
-        assertEquals(n - 1, after.ownedCards.sumBy { it.numberOfCopies })
+        assertEquals(n - 1, after.ownedTickets.sumBy { it.numberOfCopies })
     }
 }

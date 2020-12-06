@@ -23,7 +23,7 @@ data class Collection(
             dto.hallProbabilities.toMap()
     )
 
-    val cardsByRarity : Map<Rarity, List<Card>> = cards.groupBy { it.rarity }
+    val cardsByRarity : Map<Rarity, List<Card>> = cards.groupBy { it.hall }
 
     init{
         if(cards.isEmpty()){

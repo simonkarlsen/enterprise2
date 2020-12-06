@@ -72,7 +72,7 @@ class RestAPI(
             return RestResponseFactory.payload(200, PatchResultDto().apply { cardIdsInOpenedPack.addAll(ids) })
         }
 
-        val cardId = dto.cardId
+        val cardId = dto.movieId
                 ?: return RestResponseFactory.userFailure("Missing card id")
 
         if(dto.command == Command.BUY_CARD){

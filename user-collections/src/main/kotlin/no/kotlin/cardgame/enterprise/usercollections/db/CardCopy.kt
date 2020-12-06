@@ -19,7 +19,7 @@ class CardCopy(
     var user : User? = null,
 
     @get:NotBlank
-    var cardId: String? = null,
+    var movieId: String? = null,
 
     @get:Min(0)
     var numberOfCopies : Int = 0

@@ -3,7 +3,7 @@ package no.kotlin.cardgame.enterprise.auth
 import io.restassured.RestAssured
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
-import no.jonpus.enterprise2.cardgame.auth.db.UserRepository
+import no.kotlin.cardgame.enterprise.auth.db.UserRepository
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.CoreMatchers.not
 import org.hamcrest.Matchers.contains
